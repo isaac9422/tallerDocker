@@ -1,0 +1,42 @@
+.dropdown-item:hover {
+  background-color: black!important;
+}
+
+.dropdown-item {
+  color: white!important;
+}
+
+.logo {
+  display: block;
+  position: relative;
+/*  top: 3vh;*/
+  color: white;
+}
+
+.logo a {
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.menu {
+  position: relative;
+/*  top: -2vh;*/
+}
+
+/*.nav-item a {
+  color: white;
+}*/
+
+.azul-claro{
+  background: green;
+}
+
+nav {
+  margin-bottom: 40px;
+  background-color: black;
+  border-radius: 0;
+  -webkit-box-shadow: -4px -11px 23px 14px rgba(0,0,0,0.17);
+  -moz-box-shadow: -4px -11px 23px 14px rgba(0,0,0,0.17);
+  box-shadow: -4px -11px 23px 14px rgba(0,0,0,0.17);
+}

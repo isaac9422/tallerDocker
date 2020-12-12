@@ -1,0 +1,62 @@
+version: "3.8"
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: deploy_docker.file
+    ports:
+      - "80:80"
+    depends_on:
+      - back
+    networks:
+      front_network:
+        aliases:
+          - front
+          - angular
+  back:
+    build:
+      context: ./back
+      dockerfile: deploy_docker.file
+    ports:
+      - "8443:8443"
+    environment:
+      - HULK_STORE_HOST=http://localhost
+      - MYSQL_HOST=db
+    depends_on:
+      - db
+    networks:
+      back_network:
+        aliases:
+          - back
+          - java
+      front_network:
+        aliases:
+          - back
+          - java
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=storeDB
+    volumes:
+      - type: bind
+        source: C:\Users\IPALACIOS\Documents\Docker\tallerDocker\bd\
+        target: /docker-entrypoint-initdb.d/
+      - type: volume
+        source: hulk_vol
+        target: /var/lib/mysql
+    networks:
+      back_network:
+        aliases:
+          - mysql
+          - database
+        
+volumes:
+  hulk_vol:
+
+networks:
+  back_network:
+  front_network:

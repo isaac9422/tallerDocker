@@ -1,0 +1,29 @@
+<br />
+<h1>Sell page</h1>
+<hr>
+
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" width="30%">Name</th>
+      <th scope="col" width="30%">Value</th>
+      <th scope="col" width="25%">Quantity</th>
+      <th scope="col" width="15%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <td>{{product.name}}</td>
+      <td>{{product.value}}</td>
+      <td>{{product.quantity}}</td>
+      <td>
+        <button *ngIf="product.quantity <= 0" class="btn btn-outline-success" disabled> Comprar
+          <i class="fas fa-shopping-basket fa-1x" style="color: green" title="Sell product"></i>
+        </button>
+        <button *ngIf="product.quantity > 0" class="btn btn-outline-success" (click)="sellProduct(product)"> Comprar
+          <i class="fas fa-shopping-basket fa-1x" style="color: green" title="Sell product"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

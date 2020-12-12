@@ -1,0 +1,13 @@
+FROM node:14.15.1-alpine3.12
+
+RUN apk update \
+  && npm install -g @angular/cli@10.2.0 \
+  && rm -rf /tmp/* /var/cache/apk/* *.tar.gz ~/.npm \
+  && npm cache clear --force \
+  && yarn cache clean
+
+RUN apk add git
+
+WORKDIR /home/angularProject
+
+EXPOSE 4200

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-light bg-faded navbar-toggleable-md  navbar-expand-sm navbar-dark justify-content-end">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="logo">
+      <a class="navbar-brand"  href=""><img src="https://blog.modernsetups.com/wp-content/uploads/2019/01/incredible-hulk-stone-letter-logo.png" alt="Hulk Store" style="width:15%;height:15%"></a>
+    </div>
+    <div class="collapse navbar-collapse menu" id="containerNavbar">
+      <ul class="navbar-nav mr-auto w-100 justify-content-end">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" routerLink="/">Home </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+          </a>
+          <div class="dropdown-menu azul-claro" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/admin/createProduct">Create product</a>
+            <a class="dropdown-item" routerLink="/admin/getProducts">Product List</a>
+            <a class="dropdown-item" routerLink="/admin/getTransactions">Transaction List</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarPerfiles" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sell
+          </a>
+          <div class="dropdown-menu azul-claro" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/venta/comprarProducto">Sell Product</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,24 @@
+
+<br />
+<h1>Transactions List</h1>
+<hr>
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" width="22%">Data created</th>
+      <th scope="col" width="23%">Value</th>
+      <th scope="col" width="22%">Quantity</th>
+      <th scope="col" width="23%">Product Name</th>
+      <th scope="col" width="10%">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let transaction of transactionList">
+      <td>{{transaction.dateCreated | date: mediumDate}}</td>
+      <td>{{transaction.valueTransaction}}</td>
+      <td>{{transaction.quantity}}</td>
+      <td>{{transaction.productDTO.name}}</td>
+      <td>{{transaction.type ? 'Compra' : 'Venta'}}</td>
+    </tr>
+  </tbody>
+</table>

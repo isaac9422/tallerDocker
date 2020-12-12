@@ -1,0 +1,33 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'co.com.cidenet'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+  //runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-collections4
+    implementation 'org.apache.commons:commons-collections4:4.4'
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation 'junit:junit:4.13.1'
+	runtimeOnly 'mysql:mysql-connector-java'
+    
+	
+}
+
+test {
+	useJUnitPlatform()
+}

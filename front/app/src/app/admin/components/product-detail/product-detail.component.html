@@ -1,0 +1,31 @@
+<br />
+<h1>Product Form</h1>
+<hr>
+<form class="needs-validation" novalidate [formGroup]="productForm">
+  <div class="form-row">
+    <div class="col-md-8 mb-3">
+      <label class="field" for="validationAccountName">Product name</label>
+      <input type="text" class="form-control input"  id="validationAccountName" formControlName="name" />
+    </div>
+    <div class="col-md-8 mb-3">
+      <label class="field" for="inputAsignedRoute">Value</label>
+      <input type="number" class="form-control input"  id="validationCompanyCode" formControlName="value" />
+    </div>
+    <div class="col-md-8 mb-3">
+      <label class="field">Quantity</label>
+      <input type="number" class="form-control input"  id="validationCompanyCode2" formControlName="quantity" />
+    </div>
+  </div>
+</form>
+<br>
+<div class="col-md-12 mb-3">
+  <button *ngIf="!isEdit" type="submit" class="btn btn-success new" [disabled]="!productForm.valid" (click)="saveProduct()">
+    Save <i class="fas fa-check fa-1x" style="color: black; float: inline-end;"></i>
+  </button>
+  <button *ngIf="isEdit" type="submit" class="btn btn-success new" [disabled]="!productForm.valid" (click)="updateProduct()">
+    Update <i class="fas fa-check fa-1x" style="color: black; float: inline-end;"></i>
+  </button>
+  <button class="btn btn-danger cancel" [routerLink]="['/admin/getProducts']" routerLinkActive="router-link-active">
+    Cancel <i class="fas fa-times fa-1x" style="color: black; float: inline-end;"></i>
+  </button>
+</div>

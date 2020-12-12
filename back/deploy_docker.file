@@ -1,0 +1,14 @@
+### STAGE 1: Build ###
+# We label our stage as ‘builder’
+FROM openjdk:8-jdk-alpine as builder
+WORKDIR /home/java/app
+COPY ./taller .
+RUN  ./gradlew clean
+RUN  ./gradlew build
+
+### STAGE 2: Setup ###
+FROM openjdk:8-jdk-alpine
+## From ‘builder’ stage copy over the artifacts in dist folder to default nginx public folder
+COPY --from=builder home/java/app/build/libs/taller*.jar app.jar
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=prod","-jar","/app.jar"]

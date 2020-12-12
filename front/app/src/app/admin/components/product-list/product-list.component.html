@@ -1,0 +1,34 @@
+
+<br />
+<h1>Product List</h1>
+<hr>
+<table class="table table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" width="30%">Name</th>
+      <th scope="col" width="30%">Value</th>
+      <th scope="col" width="30%">Quantity</th>
+      <th scope="col" width="5%"></th>
+      <th scope="col" width="5%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <td>{{product.name}}</td>
+      <td>{{product.value}}</td>
+      <td>{{product.quantity}}</td>
+      <td>
+        <a [routerLink]="['/admin/createProduct', product.id]" routerLinkActive="router-link-active" style="margin: 1%">
+          <button class="btn btn-outline-success">
+            <i class="fas fa-edit fa-1x" style="color: green" title="Edit product"></i>
+          </button>
+        </a>
+      </td>
+      <td>
+          <button class="btn btn-outline-success" (click)="deleteProduct(product)">
+            <i class="fas fa-trash fa-1x" style="color: green" title="Delete product"></i>
+          </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
